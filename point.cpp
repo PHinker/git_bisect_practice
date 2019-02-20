@@ -19,3 +19,5 @@ Point Point::operator- (const Point& rhs) const
 
       return result;
 }
+
+// Modification

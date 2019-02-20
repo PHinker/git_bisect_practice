@@ -40,3 +40,5 @@ std::vector<Point> Sphere::boundingBox()
 
    return bb;
 }
+
+// Modification
