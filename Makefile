@@ -28,25 +28,16 @@ LIBS =
 
 # Targets include all, clean, debug, tar
 
-all : main
+all : testShape
 
-main: $(OBJS)
+testShape: $(OBJS)
 	$(LINK) -o $@ $^ $(LIBS)
 
-tests: $(TEST_OBJS) sphereCalc ellipsoidCalc
-	$(GCC) -o testMain $^
-
-ellipsoidCalc: ellipsoidCalc.o $(EST_OBJS)
-	$(GCC) -o $@ $^ $(CFLAGS)
-
-sphereCalc: sphereCalc.o $(EST_OBJS)
-	$(GCC) -o $@ $^ $(CFLAGS)
-
 clean:
-	rm -rf *.o *.d core main testMain
+	rm -rf *.o *.d core testShape
 
 debug: CXXFLAGS = -DDEBUG -g -std=c++11
-debug: main
+debug: testShape
 
 tar: clean
 	tar zcvf main.tgz $(SOURCE) *.h Makefile
