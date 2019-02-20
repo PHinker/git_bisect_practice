@@ -9,8 +9,8 @@ Sphere::Sphere(Point &p, double r) : Shape3d(p, "Sphere"), radius(r) {}
 
 bool Sphere::contains(const Point &p) const
 {
-   if (abs(distance(p)) <= radius) return true;
-   return false;
+   if (abs(distance(p)) <= radius) return false;
+   return true;
 }
 
 double Sphere::volume() const
